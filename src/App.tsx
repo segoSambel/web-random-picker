@@ -92,7 +92,7 @@ function App() {
                 </CardContent>
 
                 <CardFooter className="flex flex-col gap-4">
-                    <Button className="w-full" onClick={handlePick} disabled={loading}>
+                    <Button className="w-full bg-pink-300 hover:bg-pink-400" onClick={handlePick} disabled={loading}>
                         {loading ? "Picking..." : "Pick a Winner"}
                     </Button>
 
