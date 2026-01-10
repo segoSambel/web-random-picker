@@ -13,6 +13,11 @@ export function useRandomPicker(
     const pick = useCallback(
         async (optionNames: string[]) => {
             setLoading(true);
+
+            await new Promise((resolve) =>
+                setTimeout(resolve, 500)
+            );
+
             const pickerService = createPickerService(
                 selectorStrategyType,
                 weightStrategyType,

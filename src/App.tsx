@@ -7,6 +7,7 @@ import {Input} from "@/components/ui/input";
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
 import {useState} from "react";
 import {useRandomPicker} from "@/hooks/use-random-picker.ts";
+import {Spinner} from "@/components/ui/spinner.tsx";
 
 function App() {
     const [items, setItems] = useState("");
@@ -93,10 +94,17 @@ function App() {
 
                 <CardFooter className="flex flex-col gap-4">
                     <Button className="w-full bg-pink-300 hover:bg-pink-400" onClick={handlePick} disabled={loading}>
-                        {loading ? "Picking..." : "Pick a Winner"}
+                        {loading ? (
+                            <span className="flex items-center gap-2">
+                                <Spinner />
+                                Picking...
+                            </span>
+                        ) : (
+                            "Pick a Winner"
+                        )}
                     </Button>
 
-                    {result && (
+                    {!loading && result && (
                         <Alert className="flex flex-col gap-4 items-start w-full">
                             <div className="w-full">
                                 <AlertTitle>Initial Properties:</AlertTitle>
